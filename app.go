@@ -11,7 +11,7 @@ import (
 
 const (
 	httpPort  = 8080 //nolint:unused
-	grpcPort  = 8081
+	grpcPort  = 8082
 	adminPort = 8084 //nolint:unused
 )
 

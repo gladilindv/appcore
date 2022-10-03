@@ -1,6 +1,6 @@
 module lib/core/v1
 
-go 1.18
+go 1.19
 
 require (
 	github.com/grpc-ecosystem/go-grpc-middleware v1.3.0
