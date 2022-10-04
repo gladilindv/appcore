@@ -20,6 +20,14 @@ type IService interface {
 	Register(srv grpc.ServiceRegistrar)
 }
 
+// RegisterFunc ...
+type RegisterFunc func(srv grpc.ServiceRegistrar)
+
+// Register default implementation
+func (f RegisterFunc) Register(srv grpc.ServiceRegistrar) {
+	f(srv)
+}
+
 type application struct {
 	opts []grpc.ServerOption
 
@@ -45,7 +53,6 @@ func (a *application) Run(services ...IService) error {
 	srv := a.initGRPC()
 	for _, service := range services {
 		service.Register(srv)
-
 	}
 
 	err := srv.Serve(a.grpc)

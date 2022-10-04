@@ -19,6 +19,20 @@ func init() {
 	//metrics.MustRegister(messageCounters)
 }
 
+// FromConfig ...
+func FromConfig(lvl string) zapcore.Level {
+	l := map[string]zapcore.Level{
+		"DEBUG": zapcore.DebugLevel,
+		"INFO":  zapcore.InfoLevel,
+		"WARN":  zapcore.WarnLevel,
+		"ERROR": zapcore.ErrorLevel,
+	}
+	if v, ok := l[lvl]; ok {
+		return v
+	}
+	return defaultLevel.Level()
+}
+
 // New ...
 func New(level zapcore.LevelEnabler, options ...zap.Option) *zap.SugaredLogger {
 	return NewWithSink(level, os.Stdout, options...)
