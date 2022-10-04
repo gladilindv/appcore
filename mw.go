@@ -1,7 +1,7 @@
 package core
 
 import (
-	"lib/core/v1/logger"
+	"github.com/gladilindv/appcore/logger"
 
 	grpc_middleware "github.com/grpc-ecosystem/go-grpc-middleware"
 	grpc_zap "github.com/grpc-ecosystem/go-grpc-middleware/logging/zap"
