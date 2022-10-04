@@ -27,7 +27,7 @@ env:
   log_level: DEBUG
 ```
 
-## run 
+## Run 
 ```shell
 ENV_APP=dev go run example/main.go
 ```

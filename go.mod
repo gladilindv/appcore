@@ -1,4 +1,4 @@
-module lib/core/v1
+module github.com/gladilindv/appcore
 
 go 1.19
 
