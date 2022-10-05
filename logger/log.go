@@ -19,8 +19,8 @@ func init() {
 	//metrics.MustRegister(messageCounters)
 }
 
-// FromConfig ...
-func FromConfig(lvl string) zapcore.Level {
+// InitFromConfig ...
+func InitFromConfig(lvl string) {
 	l := map[string]zapcore.Level{
 		"DEBUG": zapcore.DebugLevel,
 		"INFO":  zapcore.InfoLevel,
@@ -28,9 +28,10 @@ func FromConfig(lvl string) zapcore.Level {
 		"ERROR": zapcore.ErrorLevel,
 	}
 	if v, ok := l[lvl]; ok {
-		return v
+		SetLevel(v)
+		return
 	}
-	return defaultLevel.Level()
+	SetLevel(defaultLevel.Level())
 }
 
 // New ...

@@ -4,12 +4,12 @@ import (
 	"context"
 	"errors"
 	"fmt"
+	"runtime/debug"
 
+	"github.com/gladilindv/appcore/logger"
 	"github.com/opentracing/opentracing-go"
 	"github.com/opentracing/opentracing-go/log"
 	"go.uber.org/zap"
-	"lib/core/v1/logger"
-	"runtime/debug"
 )
 
 func castError(raw any) error {
@@ -25,6 +25,7 @@ func castError(raw any) error {
 	return err
 }
 
+// RecoverAndLog ...
 func RecoverAndLog(ctx context.Context) {
 	if r := recover(); r != nil {
 

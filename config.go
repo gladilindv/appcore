@@ -3,18 +3,28 @@ package core
 import (
 	"fmt"
 	"os"
+	"path/filepath"
 	"sort"
 	"strings"
 
 	"github.com/spf13/viper"
 )
 
-// LoadConfig ...
-func LoadConfig(path string) error {
+const (
+	envKey = "APP_ENV"
+	envFmt = "yaml"
 
-	viper.AddConfigPath(path)
-	viper.SetConfigName(os.Getenv("ENV_APP"))
-	viper.SetConfigType("yaml")
+	envLogLevel = "env.log_level"
+)
+
+// LoadConfig ...
+func LoadConfig() error {
+
+	fpath := filepath.Join(".cfg", "k8s")
+
+	viper.AddConfigPath(fpath)
+	viper.SetConfigName(os.Getenv(envKey))
+	viper.SetConfigType(envFmt)
 	viper.SetEnvKeyReplacer(strings.NewReplacer(".", "_"))
 
 	viper.AutomaticEnv()
@@ -32,4 +42,9 @@ func LoadConfig(path string) error {
 	}
 
 	return nil
+}
+
+// LogLevel ...
+func LogLevel() string {
+	return viper.GetString(envLogLevel)
 }

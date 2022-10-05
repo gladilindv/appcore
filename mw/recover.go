@@ -3,8 +3,7 @@ package mw
 import (
 	"context"
 
-	"lib/core/v1/recovery"
-
+	"github.com/gladilindv/appcore/recovery"
 	"google.golang.org/grpc"
 )
 

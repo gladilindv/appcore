@@ -11,12 +11,14 @@ import "github.com/gladilindv/appcore"
 ```
 
 ## Example
+
 see `example/main.go`
 
-
 ## Configuration
+
 Minimal configuration file in folder `.cfg/k8s`
-```
+
+```yaml
 service:
   ports:
     http: 8080
@@ -27,7 +29,8 @@ env:
   log_level: DEBUG
 ```
 
-## Run 
+## Run
+
 ```shell
-ENV_APP=dev go run example/main.go
+$ APP_ENV=dev go run example/main.go
 ```
