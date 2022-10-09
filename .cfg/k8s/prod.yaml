@@ -6,3 +6,5 @@ service:
 
 env:
   log_level: WARN
+  svc:
+    name: example

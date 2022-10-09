@@ -6,3 +6,5 @@ service:
 
 env:
   log_level: INFO
+  svc:
+    name: example
