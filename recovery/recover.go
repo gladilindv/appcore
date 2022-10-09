@@ -18,7 +18,7 @@ func castError(raw any) error {
 	case error:
 		err = v
 	case string:
-		err = errors.New(fmt.Sprintf("panic recovered: %s", v))
+		err = fmt.Errorf("panic recovered: %s", v)
 	default:
 		err = errors.New("undefined error")
 	}

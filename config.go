@@ -98,6 +98,7 @@ func (v Value) Duration() time.Duration {
 	return cast.ToDuration(v.value)
 }
 
+// ConfigValue ...
 func ConfigValue(key string) Value {
 	return Value{viper.Get(key)}
 }
