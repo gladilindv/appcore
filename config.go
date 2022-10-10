@@ -15,7 +15,7 @@ import (
 const (
 	envKey = "APP_ENV"
 	envFmt = "yaml"
-	envDef = ".env"
+	envDef = "local.yaml"
 
 	envLogLevel = "env.log_level"
 )
