@@ -9,12 +9,6 @@ import (
 	"google.golang.org/grpc"
 )
 
-const (
-	httpPort  = 8080 //nolint:unused
-	grpcPort  = 8082
-	adminPort = 8084 //nolint:unused
-)
-
 // IService is the interface for all services
 type IService interface {
 	Register(srv grpc.ServiceRegistrar)
@@ -36,7 +30,7 @@ type application struct {
 }
 
 // New creates core application
-func New(ctx context.Context) *application {
+func New(ctx context.Context, grpcPort uint32) *application {
 	a := &application{
 		grpcPort: grpcPort,
 	}
