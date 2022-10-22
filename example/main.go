@@ -23,7 +23,7 @@ func main() {
 
 	logger.InitFromConfig(core.LogLevel())
 
-	a := core.New(ctx)
+	a := core.New(ctx, core.ConfigValue("service.ports.grpc").Uint32())
 	a.WithUnaryMW(exampleOfMW)
 
 	svcName := core.ConfigValue(cfgSvcName).String()
