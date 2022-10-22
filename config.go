@@ -83,9 +83,19 @@ func (v Value) Int32() int32 {
 	return cast.ToInt32(v.value)
 }
 
+// Uint32 ...
+func (v Value) Uint32() uint32 {
+	return cast.ToUint32(v.value)
+}
+
 // Int64 ...
 func (v Value) Int64() int64 {
 	return cast.ToInt64(v.value)
+}
+
+// Uint64 ...
+func (v Value) Uint64() uint64 {
+	return cast.ToUint64(v.value)
 }
 
 // Float64 ...
